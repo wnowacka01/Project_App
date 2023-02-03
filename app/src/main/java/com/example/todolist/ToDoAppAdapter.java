@@ -61,7 +61,7 @@ public class ToDoAppAdapter extends RecyclerView.Adapter<ToDoAppAdapter.ViewHold
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.edit){
-                Intent intent = new Intent(context, DetailActivity.class);
+                Intent intent = new Intent(context, PopUpNotif.class);
                 intent.putExtra("title", todoList.get(getAdapterPosition()).getToDoTitle());
                 intent.putExtra("description", todoList.get(getAdapterPosition()).getToDoDescription());
                 intent.putExtra("_id",todoList.get(getAdapterPosition()).getToDoId());
@@ -76,9 +76,9 @@ public class ToDoAppAdapter extends RecyclerView.Adapter<ToDoAppAdapter.ViewHold
         }
 
         public void deleteTodo(TodoModel item) {
-            DBManager dbManager = new DBManager(context);
+            DataBase dataBase = new DataBase(context);
             String[] selectionArgs = {item.getToDoId() + ""};
-            dbManager.Delete("_id=?", selectionArgs);
+            dataBase.Delete("_id=?", selectionArgs);
             Toast.makeText(context, "Zadanie zostało pomyślnie usunięte.", Toast.LENGTH_SHORT).show();
 
         }

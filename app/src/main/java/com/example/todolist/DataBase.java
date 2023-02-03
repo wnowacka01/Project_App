@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 
 import androidx.annotation.Nullable;
 
-public class DBManager {
+public class DataBase {
     String dbname = "ToDoApp";
     String dbTable = "List";
     String colId = "_id";
@@ -23,7 +23,7 @@ public class DBManager {
 
     SQLiteDatabase sqlDb =null;
 
-    public DBManager(Context context){
+    public DataBase(Context context){
         DatabaseHelperClass db = new DatabaseHelperClass(context);
         sqlDb = db.getWritableDatabase();
     }

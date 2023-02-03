@@ -39,10 +39,10 @@ public class ToDoAppActivity extends AppCompatActivity implements View.OnClickLi
     public void LoadQuery(){
         todoList = new ArrayList<>();
         todoList.clear();
-        DBManager dbManager = new DBManager(this);
+        DataBase dataBase = new DataBase(this);
         String[] projections = {"_id","title","description","time"};
         String[] selectionArgs = {""};
-        Cursor cursor = dbManager.Query(projections, "", null, null);
+        Cursor cursor = dataBase.Query(projections, "", null, null);
 
         if(cursor.getCount() == 0){
             //No data..
@@ -76,7 +76,7 @@ public class ToDoAppActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.add_button){
-            startActivity(new Intent(ToDoAppActivity.this, DetailActivity.class));
+            startActivity(new Intent(ToDoAppActivity.this, PopUpNotif.class));
         }
     }
 }
