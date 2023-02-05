@@ -45,7 +45,6 @@ public class ToDoAppActivity extends AppCompatActivity implements View.OnClickLi
         Cursor cursor = dataBase.Query(projections, "", null, null);
 
         if(cursor.getCount() == 0){
-            //No data..
             Toast.makeText(this, "Brak zadań na dziś.", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -76,7 +75,7 @@ public class ToDoAppActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.add_button){
-            startActivity(new Intent(ToDoAppActivity.this, PopUpNotif.class));
+            startActivity(new Intent(ToDoAppActivity.this, ToDoAddEdit.class));
         }
     }
 }

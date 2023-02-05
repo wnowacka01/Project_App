@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class PopUpNotif extends AppCompatActivity {
+public class ToDoAddEdit extends AppCompatActivity {
 
     TodoModel item = null;
     EditText todoTitle, todoDescription;

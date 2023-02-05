@@ -1,13 +1,22 @@
 package com.example.todolist;
 
+import static android.content.Context.VIBRATOR_SERVICE;
+
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,7 +70,7 @@ public class ToDoAppAdapter extends RecyclerView.Adapter<ToDoAppAdapter.ViewHold
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.edit){
-                Intent intent = new Intent(context, PopUpNotif.class);
+                Intent intent = new Intent(context, ToDoAddEdit.class);
                 intent.putExtra("title", todoList.get(getAdapterPosition()).getToDoTitle());
                 intent.putExtra("description", todoList.get(getAdapterPosition()).getToDoDescription());
                 intent.putExtra("_id",todoList.get(getAdapterPosition()).getToDoId());
@@ -80,9 +89,6 @@ public class ToDoAppAdapter extends RecyclerView.Adapter<ToDoAppAdapter.ViewHold
             String[] selectionArgs = {item.getToDoId() + ""};
             dataBase.Delete("_id=?", selectionArgs);
             Toast.makeText(context, "Zadanie zostało pomyślnie usunięte.", Toast.LENGTH_SHORT).show();
-
         }
-
     }
-
 }
